@@ -20,11 +20,15 @@ function CaseStudyCard({ study, index, open, onToggle }) {
 
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-3 flex-wrap">
-              {study.tag === "Featured" && (
-                <span className="text-[10px] tracking-wider uppercase bg-mint/15 text-mint px-2 py-0.5 rounded-full font-medium">
-                  Featured
-                </span>
-              )}
+              <span
+                className={`text-[10px] tracking-wider uppercase px-2 py-0.5 rounded-full font-medium ${
+                  study.tag.includes("Flagship")
+                    ? "bg-mint/15 text-mint"
+                    : "bg-panel-2 text-mist border border-line"
+                }`}
+              >
+                {study.tag}
+              </span>
               <h3 className="font-display text-lg md:text-xl font-semibold text-fog">{study.title}</h3>
             </div>
             <p className="text-sm text-mist mt-1.5 max-w-xl leading-relaxed">{study.subtitle}</p>

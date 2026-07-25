@@ -11,11 +11,19 @@ export const profile = {
   github: "https://github.com/ussamasikandar7-creator",
 };
 
+// Only numbers Ussama confirmed he can stand behind. "YC Startups" was dropped
+// entirely (couldn't be defined/sourced). Leads was corrected down from an
+// unverified 1M+ to a figure he's actually comfortable with.
 export const stats = [
   { value: 50, suffix: "+", label: "Systems Built" },
-  { value: 10, suffix: "+", label: "YC Startups" },
-  { value: 1, suffix: "M+", label: "Leads Processed" },
+  { value: 50, suffix: "K+", label: "Leads Processed" },
 ];
+
+export const flagshipProof = {
+  headline: "Every build",
+  detail: "demoed and documented on LinkedIn as it shipped —",
+  linkLabel: "watch the videos",
+};
 
 export const about = [
   "I sit at the intersection of GTM and AI — two and a half years running outbound, revenue, and account growth for B2B teams, now channeled into building the automation systems that used to take those teams hours of manual work.",
@@ -24,9 +32,35 @@ export const about = [
 
 export const caseStudies = [
   {
-    id: "proposal-automation",
-    tag: "Featured",
+    id: "voice-qualification",
+    tag: "Flagship · Client work",
     number: "01",
+    title: "AI Voice Qualification Workflow",
+    subtitle:
+      "Inbound leads get validated, called and qualified by an AI voice agent before a human ever picks up the thread.",
+    problem:
+      "Every inbound form submission needed a manual call to validate the number, run through qualification questions, and log the outcome — slow, and inconsistent depending on who made the call.",
+    context:
+      "Response speed decides whether an inbound lead converts. Manually dialling every submission, catching voicemail versus a real answer, and writing up notes by hand doesn't hold up once volume grows.",
+    system: [
+      "A form submission triggers the workflow",
+      "The phone number is validated before any call is placed",
+      "Vapi places an AI-driven qualification call to the lead",
+      "Voicemail and incomplete-call scenarios are detected and routed separately from completed calls",
+      "Budget, timeline and business challenge are captured during successful calls",
+      "Call outcome and structured responses are logged to Google Sheets",
+      "Sales is only notified once a lead is confirmed qualified",
+    ],
+    outcome:
+      "Cut the delay between form submission and first qualification touch, and handed sales structured call data instead of a raw voicemail to sort through by hand.",
+    tools: ["n8n", "Vapi", "OpenAI", "Google Sheets"],
+    linkLabel: "Watch the workflow demo on LinkedIn",
+    url: "https://www.linkedin.com/posts/ussama-sikandar_aiautomation-voiceai-n8n-activity-7485257415148556289-zZH9",
+  },
+  {
+    id: "proposal-automation",
+    tag: "Client work",
+    number: "02",
     title: "AI Proposal Automation System",
     subtitle:
       "From meeting information to a structured, client-ready proposal — with human approval built into the process.",
@@ -51,8 +85,8 @@ export const caseStudies = [
   },
   {
     id: "email-assistant",
-    tag: "Project",
-    number: "02",
+    tag: "Client work",
+    number: "03",
     title: "Human-Approved AI Email Assistant",
     subtitle:
       "An AI email workflow that prepares context-aware replies without sending anything unsupervised.",
@@ -76,8 +110,8 @@ export const caseStudies = [
   },
   {
     id: "unlock-crm",
-    tag: "Project",
-    number: "03",
+    tag: "Client work",
+    number: "04",
     title: "Unlock CRM",
     subtitle:
       "A lightweight CRM application designed to centralise customer information and sales activity.",
@@ -101,8 +135,8 @@ export const caseStudies = [
   },
   {
     id: "lead-research",
-    tag: "Project",
-    number: "04",
+    tag: "Client work",
+    number: "05",
     title: "B2B Lead Research and Outreach System",
     subtitle:
       "A structured process for turning broad target markets into qualified prospect lists and organised outbound campaigns.",

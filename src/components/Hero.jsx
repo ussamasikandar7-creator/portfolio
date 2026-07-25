@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
-import profileImg from "../assets/img/profile-web.jpg";
-import { profile, stats } from "../data/content";
+import profileImg from "../assets/img/profile-cutout-web.webp";
+import { profile, stats, flagshipProof } from "../data/content";
 import AnimatedCounter from "./AnimatedCounter";
 
 const container = {
@@ -18,17 +18,9 @@ export default function Hero() {
     <section id="top" className="relative overflow-hidden pt-32 pb-20 md:pt-44 md:pb-28">
       {/* background layers */}
       <div className="absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,black,transparent)]" />
-      <motion.div
+      <div
         aria-hidden
-        className="absolute -top-40 left-1/2 -translate-x-1/2 w-[640px] h-[640px] rounded-full bg-mint/20 blur-[140px]"
-        animate={{ opacity: [0.5, 0.8, 0.5], scale: [1, 1.08, 1] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        aria-hidden
-        className="absolute top-20 -right-24 w-[380px] h-[380px] rounded-full bg-violet/20 blur-[120px]"
-        animate={{ opacity: [0.4, 0.7, 0.4] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute -top-40 left-1/2 -translate-x-1/2 w-[640px] h-[640px] rounded-full bg-mint/10 blur-[140px]"
       />
 
       <div className="relative max-w-6xl mx-auto px-6 md:px-8">
@@ -66,7 +58,7 @@ export default function Hero() {
             <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-4">
               <a
                 href="#work"
-                className="group inline-flex items-center gap-2 rounded-full bg-mint text-ink font-medium px-6 py-3 text-sm transition-transform hover:scale-[1.03] glow-mint"
+                className="group inline-flex items-center gap-2 rounded-full bg-mint text-btn-ink font-medium px-6 py-3 text-sm transition-transform hover:scale-[1.03] glow-mint"
               >
                 See my work
                 <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -79,39 +71,54 @@ export default function Hero() {
               </a>
             </motion.div>
 
-            <motion.div variants={item} className="mt-14 grid grid-cols-3 max-w-md gap-6 border-t border-line pt-8">
-              {stats.map((s) => (
-                <div key={s.label}>
-                  <div className="font-display text-2xl md:text-3xl font-semibold text-fog">
-                    <AnimatedCounter value={s.value} suffix={s.suffix} />
+            <motion.div variants={item} className="mt-14 max-w-md border-t border-line pt-7">
+              <div className="grid grid-cols-2 gap-6 mb-5">
+                {stats.map((s) => (
+                  <div key={s.label}>
+                    <div className="font-display text-2xl md:text-3xl font-semibold text-fog">
+                      <AnimatedCounter value={s.value} suffix={s.suffix} />
+                    </div>
+                    <div className="text-xs md:text-sm text-mist mt-1">{s.label}</div>
                   </div>
-                  <div className="text-xs md:text-sm text-mist mt-1">{s.label}</div>
-                </div>
-              ))}
+                ))}
+              </div>
+
+              <a
+                href={profile.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-start gap-2.5 group"
+              >
+                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-mint shrink-0" />
+                <span className="text-sm text-mist leading-relaxed">
+                  <span className="text-fog font-medium">{flagshipProof.headline}</span> {flagshipProof.detail}
+                  <span className="inline-flex items-center gap-1 text-mint ml-1.5 group-hover:gap-2 transition-all">
+                    {flagshipProof.linkLabel}
+                    <ArrowUpRight size={13} />
+                  </span>
+                </span>
+              </a>
             </motion.div>
           </div>
 
-          <motion.div variants={item} className="relative mx-auto md:mx-0 w-full max-w-[340px]">
+          <motion.div variants={item} className="relative mx-auto md:mx-0 w-full max-w-[360px]">
             <motion.div
-              animate={{ y: [0, -14, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
               className="relative"
             >
-              <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-mint/30 via-violet/20 to-transparent blur-2xl" />
-              <div className="relative rounded-[1.75rem] overflow-hidden border border-line bg-panel">
-                <img
-                  src={profileImg}
-                  alt={profile.name}
-                  className="w-full aspect-[4/5] object-cover grayscale-[15%] contrast-[1.05]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent" />
-              </div>
+              <div className="absolute inset-x-6 bottom-4 top-10 rounded-full bg-gradient-to-b from-mint/20 via-violet/10 to-transparent blur-3xl" />
+              <img
+                src={profileImg}
+                alt={profile.name}
+                className="relative w-full drop-shadow-[0_30px_60px_rgba(0,0,0,0.55)]"
+              />
 
               <motion.div
                 initial={{ opacity: 0, scale: 0.8, y: 10 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ delay: 1.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute -bottom-5 -left-5 rounded-2xl border border-line bg-panel-2/90 backdrop-blur-xl px-4 py-3 shadow-2xl"
+                className="absolute bottom-2 -left-2 rounded-2xl border border-line bg-panel-2/90 backdrop-blur-xl px-4 py-3 shadow-2xl"
               >
                 <p className="text-xs text-mist">Based in</p>
                 <p className="text-sm text-fog font-medium">{profile.location}</p>
